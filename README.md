@@ -22,7 +22,9 @@ Npm I
 start your sequelize server, npm run seed, then open insomnia to localhost
 
 ## My Info
+
 GitHub Username: https://github.com/Bmorrissey34
+
 Github Repo : https://github.com/Bmorrissey34/E-Commerce-Backend
 
 ## Tests
