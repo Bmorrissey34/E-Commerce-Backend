@@ -15,10 +15,10 @@ router.get('/', async (req, res) => {
       include: [{
         model: Product
       }]
-    })
-    res.status(200).json(allTagsData)
+    });
+    res.status(200).json(allTagsData);
   } catch (err) {
-    res.status(500).json(err)
+    res.status(500).json(err);
   }
 });
 
@@ -30,7 +30,8 @@ router.get('/:id', async (req, res) => {
       include: [{
         model: Product
       }]
-    })
+    });
+
     if (!tagData) {
       res.status(404).json({
         message: 'No category ID found with that id!'
@@ -44,7 +45,6 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-
 router.post('/', async (req, res) => {
   // create a new tag
   try {
@@ -55,11 +55,10 @@ router.post('/', async (req, res) => {
   }
 });
 
-
 router.put('/:id', async (req, res) => {
   // update a tag's name by its `id` value
   try {
-    const updateTagData = await Tag.update({
+    const deleteTagData = await Tag.update({
       tag_name: req.body.tag_name
     }, {
       where: {
@@ -67,20 +66,21 @@ router.put('/:id', async (req, res) => {
       }
     });
 
-    if (!updateTagData) {
+    if (!deleteTagData) {
       res.status(404).json({
         message: 'No tag found with this id'
       });
       return;
     }
 
-    res.status(200).json(updateTagData);
+    res.status(200).json(deleteTagData);
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.delete('/:id',  async (req, res) => {
+router.delete('/:id', async (req, res) => {
+  // delete on tag by its `id` value
   try {
     const deleteTagData = await Tag.destroy({
       where: {

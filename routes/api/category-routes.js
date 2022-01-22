@@ -8,8 +8,12 @@ const {
 
 router.get('/', async (req, res) => {
   try {
-    const allCategoriesData = await Category.findAll({});
-    //console.table(allCategoriesData)
+    const allCategoriesData = await Category.findAll({
+      include: [{
+        model: Product,
+        as: 'products'
+      }]
+    });
     res.status(200).json(allCategoriesData);
   } catch (err) {
     res.status(500).json(err);
@@ -75,7 +79,7 @@ router.delete('/:id', async (req, res) => {
       });
       return;
     } else
-      res.status(200).json(deletedProduct);
+      res.status(200).json(deletedCategory);
     res.json(deletedCategory);
   } catch (err) {
     res.status(400).json(err);
