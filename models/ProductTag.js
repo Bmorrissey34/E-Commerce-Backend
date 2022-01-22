@@ -2,11 +2,10 @@ const {
   Model,
   DataTypes
 } = require('sequelize');
-
 const sequelize = require('../config/connection');
 
 class ProductTag extends Model {}
-
+//This is the junction table
 ProductTag.init({
   id: {
     type: DataTypes.INTEGER,
@@ -16,20 +15,22 @@ ProductTag.init({
   },
   product_id: {
     type: DataTypes.INTEGER,
+    allowNull: true,
     references: {
       model: 'product',
-      key: 'id'
+      key: 'id',
     }
   },
   tag_id: {
     type: DataTypes.INTEGER,
+    allowNull: true,
+    primaryKey: true,
     references: {
       model: 'tag',
-      key: 'id'
+      key: 'id',
     }
-  }
-}, 
-{
+  },
+}, {
   sequelize,
   timestamps: false,
   freezeTableName: true,

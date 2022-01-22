@@ -11,6 +11,7 @@ class Product extends Model {}
 
 // set up fields and rules for Product model
 Product.init({
+
   id: {
     type: DataTypes.INTEGER,
     allowNull: false,
@@ -22,34 +23,27 @@ Product.init({
     allowNull: false
   },
   price: {
-    type: DataTypes.DECIMAL,
+    type: DataTypes.FLOAT,
     allowNull: false,
-    validate: {
-      isDecimal: true
-    }
   },
   stock: {
     type: DataTypes.INTEGER,
     allowNull: false,
-    defaultValue: 10,
-    validate: {
-      isNumeric: true
-    }
   },
   category_id: {
     type: DataTypes.INTEGER,
+    allowNull: true,
     references: {
       model: 'category',
-      key: 'id'
+      key: 'id',
     }
   }
-}, 
-{
+}, {
   sequelize,
   timestamps: false,
   freezeTableName: true,
   underscored: true,
-  modelName: 'product'
-});
+  modelName: 'product',
+}, );
 
 module.exports = Product;
