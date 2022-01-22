@@ -21,7 +21,10 @@ Npm I
 ## Usage
 start your sequelize server, npm run seed, then open insomnia to localhost
 
-https://user-images.githubusercontent.com/88950762/150654075-9e5c86af-4a22-415a-8051-cdf34e14fcfa.mp4
+
+https://user-images.githubusercontent.com/88950762/150654234-cbcc094f-d196-4951-87e8-d7c1c649a248.mp4
+
+
 
 ## My Info
 
